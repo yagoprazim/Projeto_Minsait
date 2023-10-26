@@ -11,11 +11,11 @@
                 </tr>
             </thead>
             <tbody class="table-group-divider">
-                <tr>
-                    <td>teste</td>
-                    <td>teste</td>
-                    <td>teste</td>
-                    <td>teste</td>
+                <tr *ngFor="let produto of produtos$ | async">
+                    <td>{{ produto.nome }}</td>
+                    <td>{{ produto.codigoBarras }}</td>
+                    <td>{{ produto.preco }}</td>
+                    <td></td>
                 </tr>
             </tbody>
         </table>
