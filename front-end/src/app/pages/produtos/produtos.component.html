@@ -1,6 +1,6 @@
 <div class="container text-center">
     <h3 class="mb-3 mt-3">Produtos</h3>
-    <div class="mx-auto col-lg-12 col-md-8 col-sm-10">
+    <div>
         <table class="table table-bordered">
             <thead class="table-dark">
                 <tr>
@@ -10,17 +10,24 @@
                     <th scope="col">Ações</th>
                 </tr>
             </thead>
-            <tbody class="table-group-divider table-secondary">
+            <tbody class="table-group-divider table-light">
                 <tr *ngFor="let produto of produtos$ | async">
                     <td>{{ produto.nome }}</td>
                     <td>{{ produto.codigoBarras }}</td>
                     <td><span class="text-success fw-bold">R$</span>{{ produto.preco }}</td>
-                    <td></td>
+                    <td>
+                        <a class="btn btn-warning me-2">
+                            <i class="bi bi-pencil-fill"></i>
+                        </a>
+                        <a class="btn btn-danger">
+                            <i class="bi bi-trash3"></i>
+                        </a>
+                    </td>
                 </tr>
             </tbody>
         </table>
     </div>
     <div class="d-flex justify-content-start mt-3">
-        <a class="btn btn-secondary" routerLink="/produtos/cadastrar" routerLinkActive="active">Cadastrar</a>
+        <a class="btn btn-success" routerLink="/produtos/cadastrar" routerLinkActive="active">Cadastrar</a>
     </div>
 </div>
