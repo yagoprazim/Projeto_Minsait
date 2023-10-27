@@ -15,4 +15,9 @@ export class ProdutoService {
     return this.http.get<IProduto[]>(this.api);
   }
 
+  criarProduto(produto: IProduto){
+    return this.http.post<IProduto>(this.api, produto)
+  }
+
+
 }

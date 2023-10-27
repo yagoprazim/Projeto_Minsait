@@ -10,7 +10,7 @@ import { ProdutoService } from 'src/app/services/produto.service';
 })
 export class ProdutosComponent {
 
-  produtos$ = new Observable<IProduto[]>();
+  public produtos$ = new Observable<IProduto[]>();
 
   constructor(private produtoService: ProdutoService){}
 

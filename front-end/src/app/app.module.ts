@@ -8,6 +8,8 @@ import { HomeComponent } from './pages/home/home.component';
 import { ProdutosComponent } from './pages/produtos/produtos.component';
 import { HttpClientModule } from '@angular/common/http';
 import { CadastraProdutosComponent } from './pages/cadastra-produtos/cadastra-produtos.component';
+import { FormsModule, ReactiveFormsModule  } from '@angular/forms';
+import { SweetAlert2Module } from '@sweetalert2/ngx-sweetalert2';
 
 @NgModule({
   declarations: [
@@ -20,7 +22,10 @@ import { CadastraProdutosComponent } from './pages/cadastra-produtos/cadastra-pr
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    ReactiveFormsModule,
+    FormsModule,
+    SweetAlert2Module.forRoot()
   ],
   providers: [],
   bootstrap: [AppComponent]

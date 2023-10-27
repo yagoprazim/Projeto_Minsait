@@ -1,1 +1,30 @@
-<p>cadastra-produtos works!</p>
+<form [formGroup]="produtoForm" (submit)="cadastrar()">
+  <div class="container">
+    <div class="mb-3">
+      <label for="nome" class="form-label mt-3 fw-bold">Nome</label>
+      <input type="text" class="form-control" id="nome" formControlName="nome">
+      <div id="nomeHelp" class="form-text" *ngIf="produtoForm.get('nome')?.invalid && produtoForm.get('nome')?.touched" placeholder="Digite um nome">
+        <p class="text-danger">Este campo é obrigatório!</p>
+      </div>
+    </div>
+
+    <div class="mb-3">
+      <label for="codigoBarras" class="form-label fw-bold">Código de Barras</label>
+      <input type="text" class="form-control" id="codigoBarras" formControlName="codigoBarras">
+      <div id="codigoBarrasHelp" class="form-text" *ngIf="produtoForm.get('codigoBarras')?.invalid && produtoForm.get('codigoBarras')?.touched" placeholder="Digite um código">
+        <p class="text-danger">Este campo é obrigatório!</p>
+      </div>
+    </div>
+
+    <div class="mb-3">
+      <label for="preco" class="form-label fw-bold">Preço</label>
+      <input type="number" class="form-control" id="preco" formControlName="preco">
+      <div id="precoHelp" class="form-text" *ngIf="produtoForm.get('preco')?.invalid && produtoForm.get('preco')?.touched" placeholder="Digite um valor positivo">
+        <p class="text-danger">Este campo é obrigatório!</p>
+      </div>
+    </div>
+
+    <a class="btn btn-danger me-3" routerLink="/produtos" routerLinkActive="active">Voltar</a>
+    <button type="submit" class="btn btn-success" [disabled]="produtoForm.invalid || produtoForm.get('preco')?.value <= 0">Cadastrar</button>
+  </div>
+</form>
