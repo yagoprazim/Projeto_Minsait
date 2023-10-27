@@ -19,5 +19,9 @@ export class ProdutoService {
     return this.http.post<IProduto>(this.api, produto)
   }
 
+  atualizarProduto(produto: IProduto){
+    return this.http.put<IProduto>(this.api, produto)
+  }
+
 
 }
