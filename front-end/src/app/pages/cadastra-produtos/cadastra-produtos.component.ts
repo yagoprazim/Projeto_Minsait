@@ -10,8 +10,6 @@ import Swal from 'sweetalert2';
 })
 export class CadastraProdutosComponent {
 
-  exibirErro: boolean = false;
-
   constructor(private produtoService: ProdutoService){}
 
   produtoForm: FormGroup = new FormGroup({
@@ -32,9 +30,6 @@ export class CadastraProdutosComponent {
           this.produtoForm.reset();
         }
       )
-    }else {
-      this.produtoForm.markAllAsTouched();
-      this.exibirErro = true;
-    } 
+    }
   }
 }
