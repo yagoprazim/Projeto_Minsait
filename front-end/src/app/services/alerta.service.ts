@@ -18,6 +18,19 @@ export class AlertaService {
     });
   }
 
+  exibirSucessoComRedirecionamento(titulo: string, mensagem: string): Promise<void> {
+    return Swal.fire({
+      title: titulo,
+      text: mensagem,
+      icon: 'success',
+      confirmButtonColor: '#4BB543'
+    }).then((result) => {
+      if (result.isConfirmed) {
+        this.router.navigate(['/produtos']);
+      }
+    });
+  }
+
   exibirErro(titulo: string, mensagem: string) {
     Swal.fire({
       title: titulo,
@@ -37,19 +50,6 @@ export class AlertaService {
       cancelButtonColor: '#FF0000',
       confirmButtonText: 'Sim',
       cancelButtonText: 'Não'
-    });
-  }
-
-  exibirSucessoComRedirecionamento(titulo: string, mensagem: string): Promise<void> {
-    return Swal.fire({
-      title: titulo,
-      text: mensagem,
-      icon: 'success',
-      confirmButtonColor: '#4BB543'
-    }).then((result) => {
-      if (result.isConfirmed) {
-        this.router.navigate(['/produtos']);
-      }
     });
   }
 }

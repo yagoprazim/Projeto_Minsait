@@ -4,14 +4,13 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { IProduto } from 'src/app/interfaces/produto';
 import { AlertaService } from 'src/app/services/alerta.service';
 import { ProdutoService } from 'src/app/services/produto.service';
-import Swal from 'sweetalert2';
 
 @Component({
-  selector: 'app-edita-produtos',
-  templateUrl: './edita-produtos.component.html',
-  styleUrls: ['./edita-produtos.component.css']
+  selector: 'app-atualiza-produtos',
+  templateUrl: './atualiza-produtos.component.html',
+  styleUrls: ['./atualiza-produtos.component.css']
 })
-export class EditaProdutosComponent {
+export class AtualizaProdutosComponent {
 
   produtoForm: FormGroup = this.produtoService.pegarProdutoForm();
   produtoId!: number;
@@ -32,7 +31,7 @@ export class EditaProdutosComponent {
     );
   }
   
-  editar() {
+  atualizar() {
     if (this.produtoForm.valid) {
       const produto: IProduto = { ...this.produtoForm.value, id: this.produtoId };
       this.produtoService.atualizarProduto(produto).subscribe(

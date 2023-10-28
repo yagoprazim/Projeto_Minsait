@@ -11,7 +11,7 @@ import { CadastraProdutosComponent } from './pages/cadastra-produtos/cadastra-pr
 import { FormsModule, ReactiveFormsModule  } from '@angular/forms';
 import { SweetAlert2Module } from '@sweetalert2/ngx-sweetalert2';
 import { FormularioComponent } from './components/formulario/formulario.component';
-import { EditaProdutosComponent } from './pages/edita-produtos/edita-produtos.component';
+import { AtualizaProdutosComponent } from './pages/atualiza-produtos/atualiza-produtos.component';
 
 @NgModule({
   declarations: [
@@ -21,7 +21,7 @@ import { EditaProdutosComponent } from './pages/edita-produtos/edita-produtos.co
     ProdutosComponent,
     CadastraProdutosComponent,
     FormularioComponent,
-    EditaProdutosComponent
+    AtualizaProdutosComponent
   ],
   imports: [
     BrowserModule,

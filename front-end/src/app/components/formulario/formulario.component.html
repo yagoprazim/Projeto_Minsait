@@ -11,8 +11,7 @@
             <p class="text-danger">O nome deve ter no máximo 255 caracteres!</p>
           </div>
         </div>
-      </div>
-  
+      </div>  
       <div class="mb-3">
         <label for="codigoBarras" class="form-label fw-bold">Código de Barras</label>
         <input type="text" class="form-control" id="codigoBarras" formControlName="codigoBarras">
@@ -24,8 +23,7 @@
             <p class="text-danger">O Código de Barras deve ter no máximo 255 caracteres!</p>
           </div>
         </div>
-      </div>
-  
+      </div> 
       <div class="mb-3">
         <label for="preco" class="form-label fw-bold">Preço</label>
         <input type="number" class="form-control" id="preco" formControlName="preco" maxlength="2">
@@ -36,10 +34,13 @@
           <div *ngIf="preco?.errors?.['max']">
             <p class="text-danger">Você ultrapassou o valor máximo!</p>
           </div>
+          <div *ngIf="preco?.errors?.['pattern']">
+            <p class="text-danger">O valor não pode ser negativo e nem 0!</p>
+          </div>
         </div>
       </div>
       <a class="btn btn-danger me-3" routerLink="/produtos" routerLinkActive="active">Voltar</a>
-      <button type="submit" class="btn" [class]="corBotao" [disabled]="produtoForm.invalid || preco?.value <= 0" >{{ textoBotao }}</button>
+      <button type="submit" class="btn" [class]="corBotao" [disabled]="produtoForm.invalid" >{{ textoBotao }}</button>
     </div>
   </form>
   
