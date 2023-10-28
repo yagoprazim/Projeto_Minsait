@@ -11,7 +11,8 @@ export class ProdutoService {
   api = 'http://localhost:8080/api/produtos'
 
   constructor(private http:HttpClient) {}
-    
+
+  //Funções  de 'endpoint':  
   listarProdutos(){
     return this.http.get<IProduto[]>(this.api);
   }
@@ -28,6 +29,7 @@ export class ProdutoService {
     return this.http.delete<IProduto>(`${this.api}/${id}`);
   }
 
+  //Funções complementares:
   pegarProdutoPorId(id: number) {
     return this.http.get<IProduto>(`${this.api}/${id}`);
   }

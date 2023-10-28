@@ -18,15 +18,18 @@ export class EditaProdutosComponent {
 
   ngOnInit() {
     this.produtoId = this.route.snapshot.params['id'];
-    this.encontrarProduto();
+    this.produtoService.pegarProdutoPorId(this.produtoId).subscribe(
+      (produto) => {
+        if (produto) {
+          this.produtoForm.patchValue(produto);
+        } else {
+          //fazer página de erro...
+          this.router.navigate(['/produtos']);
+        }
+      }
+    );
   }
-
-  encontrarProduto() {
-    this.produtoService.pegarProdutoPorId(this.produtoId).subscribe((produto) => {
-    this.produtoForm.patchValue(produto);
-    });
-  }
-
+  
   editar() {
     if (this.produtoForm.valid) {
       const produto = { ...this.produtoForm.value, id: this.produtoId };

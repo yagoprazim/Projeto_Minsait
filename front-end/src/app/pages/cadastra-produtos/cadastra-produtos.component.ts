@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import {FormGroup} from '@angular/forms';
+import { AlertaService } from 'src/app/services/alerta.service';
 import { ProdutoService } from 'src/app/services/produto.service';
 import Swal from 'sweetalert2';
 
@@ -10,20 +11,20 @@ import Swal from 'sweetalert2';
 })
 export class CadastraProdutosComponent {
 
-  constructor(private produtoService: ProdutoService){}
-
   produtoForm: FormGroup = this.produtoService.pegarProdutoForm();
+
+  constructor(private produtoService: ProdutoService, private alertaService: AlertaService){}
   
   cadastrar() {
     if (this.produtoForm.valid) {
       this.produtoService.criarProduto(this.produtoForm.value).subscribe(
         (response) => {
-          Swal.fire('Produto Cadastrado', 'O produto foi cadastrado com sucesso.', 'success');
+          this.alertaService.exibirSucesso('Produto Cadastrado', 'O produto foi cadastrado com sucesso.');
           this.produtoForm.reset();
         },
         (error) => {
           const { message } = error;
-          Swal.fire('Erro', message, 'error');
+          this.alertaService.exibirErro('Erro', message);
           this.produtoForm.reset();
         }
       );
