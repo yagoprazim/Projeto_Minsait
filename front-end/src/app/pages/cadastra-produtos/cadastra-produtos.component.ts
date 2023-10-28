@@ -19,7 +19,7 @@ export class CadastraProdutosComponent {
   })
   
   cadastrar() {
-    if(this.produtoForm.valid){
+    if (this.produtoForm.valid) {
       this.produtoService.criarProduto(this.produtoForm.value).subscribe(
         (response) => {
           Swal.fire('Produto Cadastrado', 'O produto foi cadastrado com sucesso.', 'success');
@@ -30,19 +30,8 @@ export class CadastraProdutosComponent {
           Swal.fire('Erro', message, 'error');
           this.produtoForm.reset();
         }
-      )
+      );
     }
-  }
-
-  //Funções para chamar no tratamento de validações:
-  get nome() {
-    return this.produtoForm.get('nome');
-  }
-  get codigoBarras() {
-    return this.produtoForm.get('codigoBarras');
-  }
-  get preco() {
-    return this.produtoForm.get('preco');
   }
 }
 

@@ -10,6 +10,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { CadastraProdutosComponent } from './pages/cadastra-produtos/cadastra-produtos.component';
 import { FormsModule, ReactiveFormsModule  } from '@angular/forms';
 import { SweetAlert2Module } from '@sweetalert2/ngx-sweetalert2';
+import { FormularioComponent } from './components/formulario/formulario.component';
 
 @NgModule({
   declarations: [
@@ -17,7 +18,8 @@ import { SweetAlert2Module } from '@sweetalert2/ngx-sweetalert2';
     HeaderComponent,
     HomeComponent,
     ProdutosComponent,
-    CadastraProdutosComponent
+    CadastraProdutosComponent,
+    FormularioComponent
   ],
   imports: [
     BrowserModule,
