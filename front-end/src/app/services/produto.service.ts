@@ -10,18 +10,21 @@ export class ProdutoService {
   api = 'http://localhost:8080/api/produtos'
 
   constructor(private http:HttpClient) {}
-
+    
   listarProdutos(){
     return this.http.get<IProduto[]>(this.api);
   }
 
   criarProduto(produto: IProduto){
-    return this.http.post<IProduto>(this.api, produto)
+    return this.http.post<IProduto>(this.api, produto);
   }
 
   atualizarProduto(produto: IProduto){
-    return this.http.put<IProduto>(this.api, produto)
+    return this.http.put<IProduto>(this.api, produto);
   }
 
+  deletarProduto(id: number){
+    return this.http.delete<IProduto>(`${this.api}/${id}`);
+  }
 
 }

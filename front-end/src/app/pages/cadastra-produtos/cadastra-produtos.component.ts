@@ -13,23 +13,36 @@ export class CadastraProdutosComponent {
   constructor(private produtoService: ProdutoService){}
 
   produtoForm: FormGroup = new FormGroup({
-    nome: new FormControl('', Validators.required),
-    codigoBarras: new FormControl('', Validators.required),
+    nome: new FormControl('', [Validators.required, Validators.maxLength(255)]),
+    codigoBarras: new FormControl('', [Validators.required, Validators.maxLength(255)]),
     preco: new FormControl(1, Validators.required)
   })
   
   cadastrar() {
     if(this.produtoForm.valid){
       this.produtoService.criarProduto(this.produtoForm.value).subscribe(
-        response => {
+        (response) => {
           Swal.fire('Produto Cadastrado', 'O produto foi cadastrado com sucesso.', 'success');
           this.produtoForm.reset();
         },
-        error => {
-          Swal.fire('Erro', 'Erro ao cadastrar produto, tente novamente.', 'error');
+        (error) => {
+          const { message } = error;
+          Swal.fire('Erro', message, 'error');
           this.produtoForm.reset();
         }
       )
     }
   }
+
+  //Funções para chamar no tratamento de validações:
+  get nome() {
+    return this.produtoForm.get('nome');
+  }
+  get codigoBarras() {
+    return this.produtoForm.get('codigoBarras');
+  }
+  get preco() {
+    return this.produtoForm.get('preco');
+  }
 }
+

@@ -3,8 +3,13 @@
     <div class="mb-3">
       <label for="nome" class="form-label mt-3 fw-bold">Nome</label>
       <input type="text" class="form-control" id="nome" formControlName="nome">
-      <div id="nomeHelp" class="form-text" *ngIf="produtoForm.get('nome')?.invalid && produtoForm.get('nome')?.touched">
-        <p class="text-danger">Este campo é obrigatório!</p>
+      <div id="nomeHelp" class="form-text" *ngIf="nome?.invalid && (nome?.dirty || nome?.touched)">
+        <div *ngIf="nome?.errors?.['required']">
+          <p class="text-danger">Este campo é obrigatório!</p>
+        </div>
+        <div *ngIf="nome?.errors?.['maxlength']">
+          <p class="text-danger">O nome deve ter no máximo 255 caracteres!</p>
+        </div>
       </div>
     </div>
 
