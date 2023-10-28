@@ -23,13 +23,14 @@ export class ProdutosComponent {
   deletar(id: number) {
     this.alertaService.exibirConfirmacao('Deletar produto', 'Você tem certeza que deseja deletar o produto?')
       .then((result) => {
-      if (result.isConfirmed) {
-        this.produtoService.deletarProduto(id).subscribe(() => {
-          this.alertaService.exibirSucesso('Deletado.', 'Seu produto foi deletado com sucesso.');
-          this.produtos$ = this.produtoService.listarProdutos();
-        });
-      }
-    });
+        if (result.isConfirmed) {
+          this.produtoService.deletarProduto(id).subscribe(() => {
+            this.alertaService.exibirSucesso('Deletado.', 'Seu produto foi deletado com sucesso.');
+            this.produtos$ = this.produtoService.listarProdutos();
+          });
+        }
+      });
   }
+  
 
 }

@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import { Router } from '@angular/router';
 import Swal from 'sweetalert2';
 
 @Injectable({
@@ -6,14 +7,24 @@ import Swal from 'sweetalert2';
 })
 export class AlertaService {
 
-  constructor() { }
+  constructor(private router: Router) { }
 
   exibirSucesso(titulo: string, mensagem: string) {
-    Swal.fire(titulo, mensagem, 'success');
+    Swal.fire({
+      title: titulo,
+      text: mensagem,
+      icon: 'success',
+      confirmButtonColor: '#4BB543'
+    });
   }
 
   exibirErro(titulo: string, mensagem: string) {
-    Swal.fire(titulo, mensagem, 'error');
+    Swal.fire({
+      title: titulo,
+      text: mensagem,
+      icon: 'error',
+      confirmButtonColor: '#FF0000'
+    });
   }
 
   exibirConfirmacao(titulo: string, mensagem: string) {
@@ -22,10 +33,23 @@ export class AlertaService {
       text: mensagem,
       icon: 'question',
       showCancelButton: true,
-      confirmButtonColor: '#3085d6',
-      cancelButtonColor: '#d33',
+      confirmButtonColor: '#4BB543',
+      cancelButtonColor: '#FF0000',
       confirmButtonText: 'Sim',
       cancelButtonText: 'Não'
+    });
+  }
+
+  exibirSucessoComRedirecionamento(titulo: string, mensagem: string): Promise<void> {
+    return Swal.fire({
+      title: titulo,
+      text: mensagem,
+      icon: 'success',
+      confirmButtonColor: '#4BB543'
+    }).then((result) => {
+      if (result.isConfirmed) {
+        this.router.navigate(['/produtos']);
+      }
     });
   }
 }

@@ -2,7 +2,6 @@ import { Component } from '@angular/core';
 import {FormGroup} from '@angular/forms';
 import { AlertaService } from 'src/app/services/alerta.service';
 import { ProdutoService } from 'src/app/services/produto.service';
-import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-cadastra-produtos',

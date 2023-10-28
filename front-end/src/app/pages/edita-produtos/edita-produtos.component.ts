@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
 import { FormGroup} from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
+import { IProduto } from 'src/app/interfaces/produto';
+import { AlertaService } from 'src/app/services/alerta.service';
 import { ProdutoService } from 'src/app/services/produto.service';
 import Swal from 'sweetalert2';
 
@@ -14,7 +16,7 @@ export class EditaProdutosComponent {
   produtoForm: FormGroup = this.produtoService.pegarProdutoForm();
   produtoId!: number;
 
-  constructor(private produtoService: ProdutoService, private route: ActivatedRoute, private router: Router) {}
+  constructor(private produtoService: ProdutoService, private alertaService: AlertaService, private route: ActivatedRoute, private router: Router) {}
 
   ngOnInit() {
     this.produtoId = this.route.snapshot.params['id'];
@@ -32,18 +34,14 @@ export class EditaProdutosComponent {
   
   editar() {
     if (this.produtoForm.valid) {
-      const produto = { ...this.produtoForm.value, id: this.produtoId };
+      const produto: IProduto = { ...this.produtoForm.value, id: this.produtoId };
       this.produtoService.atualizarProduto(produto).subscribe(
         (response) => {
-          Swal.fire('Produto Atualizado', 'O produto foi atualizado com sucesso.', 'success').then((result) => {
-            if (result.isConfirmed) {
-              this.router.navigate(['/produtos']);
-            }
-          });
+          this.alertaService.exibirSucessoComRedirecionamento('Produto Atualizado', 'O produto foi atualizado com sucesso.');
         },
         (error) => {
           const { message } = error;
-          Swal.fire('Erro', message, 'error');
+          this.alertaService.exibirErro('Erro', message);
         }
       );
     }
