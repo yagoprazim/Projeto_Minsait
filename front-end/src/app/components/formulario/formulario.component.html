@@ -17,15 +17,25 @@
         <label for="codigoBarras" class="form-label fw-bold">Código de Barras</label>
         <input type="text" class="form-control" id="codigoBarras" formControlName="codigoBarras">
         <div id="codigoBarrasHelp" class="form-text" *ngIf="codigoBarras?.invalid && codigoBarras?.touched">
-          <p class="text-danger">Este campo é obrigatório!</p>
+          <div *ngIf="codigoBarras?.errors?.['required']">
+            <p class="text-danger">Este campo é obrigatório!</p>
+          </div>
+          <div *ngIf="codigoBarras?.errors?.['maxlength']">
+            <p class="text-danger">O Código de Barras deve ter no máximo 255 caracteres!</p>
+          </div>
         </div>
       </div>
   
       <div class="mb-3">
         <label for="preco" class="form-label fw-bold">Preço</label>
-        <input type="number" class="form-control" id="preco" formControlName="preco">
+        <input type="number" class="form-control" id="preco" formControlName="preco" maxlength="2">
         <div id="precoHelp" class="form-text" *ngIf="preco?.invalid && preco?.touched">
-          <p class="text-danger">Este campo é obrigatório!</p>
+          <div *ngIf="preco?.errors?.['required']">
+            <p class="text-danger">Este campo é obrigatório!</p>
+          </div>
+          <div *ngIf="preco?.errors?.['max']">
+            <p class="text-danger">Você ultrapassou o valor máximo!</p>
+          </div>
         </div>
       </div>
       <a class="btn btn-danger me-3" routerLink="/produtos" routerLinkActive="active">Voltar</a>

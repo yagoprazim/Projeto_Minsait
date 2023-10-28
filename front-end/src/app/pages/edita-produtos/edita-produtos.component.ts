@@ -22,8 +22,8 @@ export class EditaProdutosComponent {
   }
 
   encontrarProduto() {
-    this.produtoService.listarProdutoPorId(this.produtoId).subscribe((produto) => {
-      this.produtoForm.patchValue(produto);
+    this.produtoService.pegarProdutoPorId(this.produtoId).subscribe((produto) => {
+    this.produtoForm.patchValue(produto);
     });
   }
 
