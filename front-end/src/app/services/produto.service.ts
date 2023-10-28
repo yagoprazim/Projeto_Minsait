@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { IProduto } from '../interfaces/produto';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
 
 @Injectable({
   providedIn: 'root'
@@ -27,4 +28,16 @@ export class ProdutoService {
     return this.http.delete<IProduto>(`${this.api}/${id}`);
   }
 
+  pegarProdutoForm(): FormGroup {
+    return new FormGroup({
+      nome: new FormControl('', [Validators.required, Validators.maxLength(255)]),
+      codigoBarras: new FormControl('', [Validators.required, Validators.maxLength(255)]),
+      preco: new FormControl(1, Validators.required)
+    });
+  }
+
+  listarProdutoPorId(id: number) {
+    return this.http.get<IProduto>(`${this.api}/${id}`);
+  }
+  
 }

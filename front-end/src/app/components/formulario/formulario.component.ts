@@ -1,5 +1,6 @@
 import { Component, Input} from '@angular/core';
-import { FormControl, FormGroup} from '@angular/forms';
+import { FormGroup} from '@angular/forms';
+import { ProdutoService } from 'src/app/services/produto.service';
 
 @Component({
   selector: 'app-formulario',
@@ -8,15 +9,14 @@ import { FormControl, FormGroup} from '@angular/forms';
 })
 export class FormularioComponent {
   
-  //Estabelecendo o default para ser substituído depois pelos components de cadastro e edição:
-  @Input() produtoForm: FormGroup = new FormGroup({
-    nome: new FormControl(),
-    codigoBarras: new FormControl(),
-    preco: new FormControl()
-  });
-  @Input() textoBotao: string = 'Enviar';
+  constructor(private produtoService: ProdutoService) {}
 
-  //Funções para chamar no tratamento das validações (para legibilidade):
+  //Estabelecendo os inputs para serem utilizados por 'cadastrar' e 'editar'
+  @Input() produtoForm: FormGroup = this.produtoService.pegarProdutoForm();
+  @Input() textoBotao: string = 'Enviar';
+  @Input() corBotao: string = 'btn-success';
+
+  //Funções para usar no tratamento das validações no html (para legibilidade):
   get nome() {
     return this.produtoForm.get('nome');
   }

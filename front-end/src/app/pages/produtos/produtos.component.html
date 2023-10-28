@@ -16,9 +16,9 @@
                     <td>{{ produto.codigoBarras }}</td>
                     <td>{{ produto.preco | currency: 'BRL'}}</td>
                     <td>
-                        <button class="btn btn-warning me-2">
+                        <a class="btn btn-warning me-2" [routerLink]="['/produtos/editar', produto.id]" routerLinkActive="active">
                             <i class="bi bi-pencil-fill"></i>
-                        </button>
+                        </a>
                         <button class="btn btn-danger" (click)="deletar(produto.id!)">
                             <i class="bi bi-trash3"></i>
                         </button>

@@ -29,7 +29,7 @@
         </div>
       </div>
       <a class="btn btn-danger me-3" routerLink="/produtos" routerLinkActive="active">Voltar</a>
-      <button type="submit" class="btn btn-success" [disabled]="produtoForm.invalid || preco?.value <= 0" >{{ textoBotao }}</button>
+      <button type="submit" class="btn" [class]="corBotao" [disabled]="produtoForm.invalid || preco?.value <= 0" >{{ textoBotao }}</button>
     </div>
   </form>
   

@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { FormControl, FormGroup, Validators } from '@angular/forms';
+import {FormGroup} from '@angular/forms';
 import { ProdutoService } from 'src/app/services/produto.service';
 import Swal from 'sweetalert2';
 
@@ -12,11 +12,7 @@ export class CadastraProdutosComponent {
 
   constructor(private produtoService: ProdutoService){}
 
-  produtoForm: FormGroup = new FormGroup({
-    nome: new FormControl('', [Validators.required, Validators.maxLength(255)]),
-    codigoBarras: new FormControl('', [Validators.required, Validators.maxLength(255)]),
-    preco: new FormControl(1, Validators.required)
-  })
+  produtoForm: FormGroup = this.produtoService.pegarProdutoForm();
   
   cadastrar() {
     if (this.produtoForm.valid) {

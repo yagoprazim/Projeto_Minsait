@@ -29,18 +29,18 @@ export class ProdutosComponent {
     cancelButtonColor: '#d33',
     confirmButtonText: 'Sim',
     cancelButtonText: 'Não'
-  }).then((result) => {
-    if (result.isConfirmed) {
-      this.produtoService.deletarProduto(id).subscribe(() => {
-        Swal.fire(
-          'Deletado.',
-          'Seu produto foi deletado com sucesso.',
-          'success'
-        );
-        this.produtos$ = this.produtoService.listarProdutos();
-      });
-    }
-  });
+    }).then((result) => {
+      if (result.isConfirmed) {
+        this.produtoService.deletarProduto(id).subscribe(() => {
+          Swal.fire(
+            'Deletado.',
+            'Seu produto foi deletado com sucesso.',
+            'success'
+          );
+          this.produtos$ = this.produtoService.listarProdutos();
+        });
+      }
+    });
   }
 
 }

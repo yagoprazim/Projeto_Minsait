@@ -11,6 +11,7 @@ import { CadastraProdutosComponent } from './pages/cadastra-produtos/cadastra-pr
 import { FormsModule, ReactiveFormsModule  } from '@angular/forms';
 import { SweetAlert2Module } from '@sweetalert2/ngx-sweetalert2';
 import { FormularioComponent } from './components/formulario/formulario.component';
+import { EditaProdutosComponent } from './pages/edita-produtos/edita-produtos.component';
 
 @NgModule({
   declarations: [
@@ -19,7 +20,8 @@ import { FormularioComponent } from './components/formulario/formulario.componen
     HomeComponent,
     ProdutosComponent,
     CadastraProdutosComponent,
-    FormularioComponent
+    FormularioComponent,
+    EditaProdutosComponent
   ],
   imports: [
     BrowserModule,
