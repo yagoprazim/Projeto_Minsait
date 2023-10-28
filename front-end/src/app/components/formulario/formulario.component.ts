@@ -1,5 +1,5 @@
-import { Component, Input, Output, EventEmitter  } from '@angular/core';
-import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { Component, Input} from '@angular/core';
+import { FormControl, FormGroup} from '@angular/forms';
 
 @Component({
   selector: 'app-formulario',
@@ -8,21 +8,13 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
 })
 export class FormularioComponent {
   
-  //Estabelecendo o default para ser substituído depois:
+  //Estabelecendo o default para ser substituído depois pelos components de cadastro e edição:
   @Input() produtoForm: FormGroup = new FormGroup({
-    nome: new FormControl('', [Validators.required, Validators.maxLength(255)]),
-    codigoBarras: new FormControl('', [Validators.required, Validators.maxLength(255)]),
-    preco: new FormControl(1, Validators.required)
+    nome: new FormControl(),
+    codigoBarras: new FormControl(),
+    preco: new FormControl()
   });
-  @Input() textoBotao: string = 'Submit';
-  @Output() enviarFormulario = new EventEmitter<void>();
-
-  //Função para disparar o evento:
-  enviar() {
-    if (this.produtoForm.valid) {
-      this.enviarFormulario.emit();
-    }
-  }
+  @Input() textoBotao: string = 'Enviar';
 
   //Funções para chamar no tratamento das validações (para legibilidade):
   get nome() {
