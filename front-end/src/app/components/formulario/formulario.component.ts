@@ -26,5 +26,4 @@ export class FormularioComponent {
   get preco() {
     return this.produtoForm.get('preco');
   }
-  
 }
