@@ -18,12 +18,11 @@ export class CadastraProdutosComponent {
     if (this.produtoForm.valid) {
       this.produtoService.criarProduto(this.produtoForm.value).subscribe(
         (response) => {
-          this.alertaService.exibirSucesso('Produto Cadastrado', 'O produto foi cadastrado com sucesso.');
+          this.alertaService.exibirSucessoComRedirecionamento('Produto Cadastrado', 'O produto foi cadastrado com sucesso.');
           this.produtoForm.reset();
         },
         (error) => {
-          const { message } = error;
-          this.alertaService.exibirErro('Erro', message);
+          this.alertaService.exibirErro('Erro ao Cadastrar', 'Não foi possível cadastrar o produto.');
           this.produtoForm.reset();
         }
       );

@@ -36,11 +36,10 @@ export class AtualizaProdutosComponent {
       const produto: IProduto = { ...this.produtoForm.value, id: this.produtoId };
       this.produtoService.atualizarProduto(produto).subscribe(
         (response) => {
-          this.alertaService.exibirSucessoComRedirecionamento('Produto Atualizado', 'O produto foi atualizado com sucesso.');
+          this.alertaService.exibirSucessoComRedirecionamento('Produto Editado', 'O produto foi editado com sucesso.');
         },
         (error) => {
-          const { message } = error;
-          this.alertaService.exibirErro('Erro', message);
+          this.alertaService.exibirErro('Erro ao editar', "Não foi possível editar o produto.");
         }
       );
     }
