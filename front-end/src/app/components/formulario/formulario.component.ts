@@ -11,7 +11,7 @@ export class FormularioComponent {
   
   constructor(private produtoService: ProdutoService) {}
 
-  //Estabelecendo os inputs para serem utilizados por 'cadastrar' e 'editar'
+  //Estabelecendo os inputs para serem utilizados por 'cadastrar' e 'atualizar'
   @Input() produtoForm: FormGroup = this.produtoService.pegarProdutoForm();
   @Input() textoBotao: string = 'Enviar';
   @Input() corBotao: string = 'btn-success';

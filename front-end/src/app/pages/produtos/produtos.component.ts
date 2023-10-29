@@ -25,8 +25,10 @@ export class ProdutosComponent {
         if (result.isConfirmed) {
           this.produtoService.deletarProduto(id).subscribe(() => {
             this.alertaService.exibirSucesso('Deletado.', 'Seu produto foi deletado com sucesso.');
+            this.produtos$ = this.produtoService.listarProdutos();
           });
         }
       });
-  }  
+  }
+  
 }

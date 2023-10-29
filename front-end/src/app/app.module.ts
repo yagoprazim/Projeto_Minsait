@@ -12,6 +12,8 @@ import { FormsModule, ReactiveFormsModule  } from '@angular/forms';
 import { SweetAlert2Module } from '@sweetalert2/ngx-sweetalert2';
 import { FormularioComponent } from './components/formulario/formulario.component';
 import { AtualizaProdutosComponent } from './pages/atualiza-produtos/atualiza-produtos.component';
+import { NgxChartsModule } from '@swimlane/ngx-charts';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [
@@ -25,11 +27,13 @@ import { AtualizaProdutosComponent } from './pages/atualiza-produtos/atualiza-pr
   ],
   imports: [
     BrowserModule,
+    BrowserAnimationsModule,
     AppRoutingModule,
     HttpClientModule,
     ReactiveFormsModule,
     FormsModule,
-    SweetAlert2Module.forRoot()
+    SweetAlert2Module.forRoot(),
+    NgxChartsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
