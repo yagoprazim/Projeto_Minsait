@@ -1,7 +1,7 @@
 <form [formGroup]="produtoForm">
     <div class="container">
       <div class="mb-3">
-        <label for="nome" class="form-label mt-3 fw-bold">Nome</label>
+        <label for="nome" class="form-label mt-3 fw-bold">Nome do Produto</label>
         <input type="text" class="form-control" id="nome" formControlName="nome">
         <div id="nomeHelp" class="form-text" *ngIf="nome?.invalid && (nome?.dirty || nome?.touched)">
           <div *ngIf="nome?.errors?.['required']">
