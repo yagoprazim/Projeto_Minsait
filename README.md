@@ -37,7 +37,7 @@ No seu ambiente de desenvolvimento, escolha um diretório e, no terminal, execut
 5. __APP-ROUTING__:
    - É onde estão definidas as rotas da aplicação, como:
    1. http://localhost:4200/ (rota inicial);
-   2. http://localhost:4200/produtos (rota que lista produtos entre outras funções);
+   2. http://localhost:4200/produtos (rota que lista produtos, entre outras funções);
    3. http://localhost:4200/produtos/cadastrar (rota que cadastra produto);
    4. http://localhost:4200/produtos/atualizar/:id (rota que edita produto pelo id).
 ------------------------------------------------------------------------------------------------------
@@ -82,11 +82,10 @@ No seu ambiente de desenvolvimento, escolha um diretório e, no terminal, execut
 8. __POM.XML__:
    É onde podemos visualizar e gerenciar as dependências utilizadas pela aplicação.
 ------------------------------------------------------------------------------------------------------
-### :unlock: Endpoints Consumidos pelo Front
+### :unlock: Endpoints Principais Consumidos pelo Front
 - GET http://localhost:8080/api/produtos (lista todos os produtos)
-- GET http://localhost:8080/api/produtos/id (lista um produto específico)
 - POST http://localhost:8080/api/produtos (cadastra um produto)
-- PUT http://localhost:8080/api/produtos (atualiza um produto, passando o id body)
+- PUT http://localhost:8080/api/produtos (atualiza um produto, passando o id no body)
 - DELETE http://localhost:8080/api/produtos/id (exclui um produto)
 ------------------------------------------------------------------------------------------------------
 ------------------------------------------------------------------------------------------------------
