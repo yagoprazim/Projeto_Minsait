@@ -37,7 +37,7 @@ No seu ambiente de desenvolvimento, escolha um diretório e, no terminal, execut
 5. __APP-ROUTING__:
    - É onde estão definidas as rotas da aplicação, como:
    1. http://localhost:4200/ (rota inicial);
-   2. http://localhost:4200/produtos (rota que lista produtos);
+   2. http://localhost:4200/produtos (rota que lista produtos entre outras funções);
    3. http://localhost:4200/produtos/cadastrar (rota que cadastra produto);
    4. http://localhost:4200/produtos/atualizar/:id (rota que edita produto pelo id).
 ------------------------------------------------------------------------------------------------------
