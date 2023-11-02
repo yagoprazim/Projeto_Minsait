@@ -26,7 +26,7 @@
       </div> 
       <div class="mb-3">
         <label for="preco" class="form-label fw-bold">Preço</label>
-        <input type="text" class="form-control" id="preco" formControlName="preco" mask="separator.2" thousandSeparator="," decimalSeparator=".">
+        <input type="text" class="form-control" id="preco" formControlName="preco" mask="separator.2" decimalSeparator=".">
         <div id="precoHelp" class="form-text" *ngIf="preco?.invalid && preco?.touched">
           <div *ngIf="preco?.errors?.['required']">
             <p class="text-danger">Este campo é obrigatório!</p>
