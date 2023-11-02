@@ -15,10 +15,12 @@ export class ProdutosComponent {
 
   constructor(private produtoService: ProdutoService, private alertaService: AlertaService){}
 
+  //Inicializa listando os produtos existentes.
   ngOnInit(){
     this.produtos$ = this.produtoService.listarProdutos();
   }
   
+  //Função que deleta um produto quando houver interação com o botão, com confirmação.
   deletar(id: number) {
     this.alertaService.exibirConfirmacao('Excluir Produto', 'Você tem certeza que deseja excluir o produto?')
       .then((result) => {
@@ -30,5 +32,6 @@ export class ProdutosComponent {
         }
       });
   }
-  
+
 }
+

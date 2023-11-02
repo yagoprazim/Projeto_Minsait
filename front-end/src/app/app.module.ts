@@ -14,6 +14,7 @@ import { FormularioComponent } from './components/formulario/formulario.componen
 import { AtualizaProdutosComponent } from './pages/atualiza-produtos/atualiza-produtos.component';
 import { NgxChartsModule } from '@swimlane/ngx-charts';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { NgxMaskDirective, NgxMaskPipe, provideNgxMask } from 'ngx-mask';
 
 @NgModule({
   declarations: [
@@ -33,9 +34,11 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     ReactiveFormsModule,
     FormsModule,
     SweetAlert2Module.forRoot(),
-    NgxChartsModule
+    NgxChartsModule,
+    NgxMaskDirective,
+    NgxMaskPipe
   ],
-  providers: [],
+  providers: [provideNgxMask()],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

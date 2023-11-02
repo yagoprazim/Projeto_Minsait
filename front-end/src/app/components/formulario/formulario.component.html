@@ -8,7 +8,7 @@
             <p class="text-danger">Este campo é obrigatório!</p>
           </div>
           <div *ngIf="nome?.errors?.['maxlength']">
-            <p class="text-danger">O nome deve ter no máximo 255 caracteres!</p>
+            <p class="text-danger">Limite máximo de caracteres. (255)</p>
           </div>
         </div>
       </div>  
@@ -20,19 +20,19 @@
             <p class="text-danger">Este campo é obrigatório!</p>
           </div>
           <div *ngIf="codigoBarras?.errors?.['maxlength']">
-            <p class="text-danger">O Código de Barras deve ter no máximo 255 caracteres!</p>
+            <p class="text-danger">Limite máximo de caracteres. (255)</p>
           </div>
         </div>
       </div> 
       <div class="mb-3">
         <label for="preco" class="form-label fw-bold">Preço</label>
-        <input type="number" class="form-control" id="preco" formControlName="preco" maxlength="2">
+        <input type="text" class="form-control" id="preco" formControlName="preco" mask="separator.2" thousandSeparator="," decimalSeparator=".">
         <div id="precoHelp" class="form-text" *ngIf="preco?.invalid && preco?.touched">
           <div *ngIf="preco?.errors?.['required']">
             <p class="text-danger">Este campo é obrigatório!</p>
           </div>
           <div *ngIf="preco?.errors?.['max']">
-            <p class="text-danger">Você ultrapassou o valor máximo!</p>
+            <p class="text-danger">Limite máximo de caracteres. (36 - inteiros, 2 - decimais)</p>
           </div>
         </div>
       </div>

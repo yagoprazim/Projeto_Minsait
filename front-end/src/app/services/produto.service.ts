@@ -38,7 +38,7 @@ export class ProdutoService {
     return new FormGroup({
       nome: new FormControl('', [Validators.required, Validators.maxLength(255)]),
       codigoBarras: new FormControl('', [Validators.required, Validators.maxLength(255)]),
-      preco: new FormControl(1.00, [Validators.required, Validators.max(99999999999999999999999999999999999)])
+      preco: new FormControl(1, [Validators.required, Validators.max(999999999999999999999999999999999999)])
     });
   }
   

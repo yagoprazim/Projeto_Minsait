@@ -14,7 +14,7 @@
                 <tr *ngFor="let produto of produtos$ | async">
                     <td>{{ produto.nome }}</td>
                     <td>{{ produto.codigoBarras }}</td>
-                    <td>{{ produto.preco | currency: 'BRL'}}</td>
+                    <td>{{ produto.preco | currency:'BRL'}}</td>
                     <td>
                         <a class="btn btn-warning me-2" [routerLink]="['/produtos/atualizar', produto.id]" routerLinkActive="active">
                             <i class="bi bi-pencil-fill"></i>

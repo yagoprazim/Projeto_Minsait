@@ -15,8 +15,13 @@ export class AtualizaProdutosComponent {
   produtoForm: FormGroup = this.produtoService.pegarProdutoForm();
   produtoId!: number;
 
-  constructor(private produtoService: ProdutoService, private alertaService: AlertaService, private route: ActivatedRoute, private router: Router) {}
-
+  constructor(
+    private produtoService: ProdutoService, 
+    private alertaService: AlertaService, 
+    private route: ActivatedRoute, 
+    private router: Router) {}
+  
+  //Obtém o id do produto e preenche os campos do form com os dados do objeto existente, ao inicializar a página.
   ngOnInit() {
     this.produtoId = this.route.snapshot.params['id'];
     this.produtoService.pegarProdutoPorId(this.produtoId).subscribe(
@@ -24,13 +29,13 @@ export class AtualizaProdutosComponent {
         if (produto) {
           this.produtoForm.patchValue(produto);
         } else {
-          //fazer página de erro...
           this.router.navigate(['/produtos']);
         }
       }
     );
   }
   
+  //Função que atualiza um produto quando houver a interação com o botão.
   atualizar() {
     if (this.produtoForm.valid) {
       const produto: IProduto = { ...this.produtoForm.value, id: this.produtoId };

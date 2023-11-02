@@ -14,6 +14,7 @@ export class CadastraProdutosComponent {
 
   constructor(private produtoService: ProdutoService, private alertaService: AlertaService){}
   
+  //Função que cadastra um produto quando houver interação com o botão.
   cadastrar() {
     if (this.produtoForm.valid) {
       this.produtoService.criarProduto(this.produtoForm.value).subscribe(
