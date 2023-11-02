@@ -13,6 +13,7 @@ export class HomeComponent {
 
   constructor(private produtoService: ProdutoService) { }
 
+  //Mapeia 'Data' para receber os dados 'nome' e 'preco' dos Produtos.
   ngOnInit(){
     this.produtoService.listarProdutos().subscribe((produtos: IProduto[]) => {
       this.data = produtos.map(produto => ({
